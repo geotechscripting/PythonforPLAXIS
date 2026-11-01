@@ -1,10 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
+import bookCover from "../public/book-cover.webp";
 
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About the Book", href: "#about" },
-  { label: "Examples", href: "#examples" },
-  { label: "Resources", href: "#resources" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -40,59 +40,13 @@ function PythonLogo({ className }: { className?: string }) {
 
 function PlaxisLogo({ className }: { className?: string }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 120 120"
-      className={className}
-      aria-label="PLAXIS — finite element mesh"
-    >
-      {/* Stylized FEM mesh triangle grid */}
-      <defs>
-        <linearGradient id="meshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00B4D8" />
-          <stop offset="100%" stopColor="#0077B6" />
-        </linearGradient>
-      </defs>
-      <g stroke="url(#meshGrad)" strokeWidth="1.5" fill="none" opacity="0.9">
-        {/* Row 1 */}
-        <polygon points="60,10 40,38 80,38" />
-        {/* Row 2 */}
-        <polygon points="40,38 20,66 60,66" />
-        <polygon points="80,38 60,66 40,38" />
-        <polygon points="80,38 60,66 100,66" />
-        {/* Row 3 */}
-        <polygon points="20,66 0,94 40,94" />
-        <polygon points="60,66 40,94 20,66" />
-        <polygon points="60,66 40,94 80,94" />
-        <polygon points="100,66 80,94 60,66" />
-        <polygon points="100,66 80,94 120,94" />
-      </g>
-      {/* Nodes */}
-      <g fill="url(#meshGrad)">
-        <circle cx="60" cy="10" r="3" />
-        <circle cx="40" cy="38" r="3" />
-        <circle cx="80" cy="38" r="3" />
-        <circle cx="20" cy="66" r="3" />
-        <circle cx="60" cy="66" r="3" />
-        <circle cx="100" cy="66" r="3" />
-        <circle cx="0" cy="94" r="3" />
-        <circle cx="40" cy="94" r="3" />
-        <circle cx="80" cy="94" r="3" />
-        <circle cx="120" cy="94" r="3" />
-      </g>
-      {/* PLAXIS text */}
-      <text
-        x="60"
-        y="114"
-        textAnchor="middle"
-        fill="#0077B6"
-        fontSize="14"
-        fontWeight="bold"
-        fontFamily="sans-serif"
-      >
-        PLAXIS
-      </text>
-    </svg>
+    <Image
+      src={`${process.env.NEXT_PUBLIC_BASE_PATH}/plaxis-logo.svg`}
+      alt="PLAXIS logo"
+      width={96}
+      height={96}
+      className={`object-contain ${className ?? ""}`}
+    />
   );
 }
 
@@ -155,19 +109,25 @@ export default function Home() {
             Python Scripting
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
-              in PLAXIS
+              for PLAXIS
             </span>
           </h1>
 
           <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Automating Geotechnical Analysis and Modelling Workflows
+            Automating Geotechnical Analysis and Modeling Workflows
           </p>
+
+          <Image
+            src={bookCover}
+            alt="Cover of Python Scripting for PLAXIS"
+            className="w-48 sm:w-60 h-auto mx-auto rounded-md shadow-2xl shadow-black/50"
+            priority
+          />
 
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent mx-auto"></div>
 
           <p className="text-sm text-slate-500 max-w-lg mx-auto">
-            Companion website for the book. Code examples, resources, and
-            documentation coming soon.
+            Companion website for the book.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

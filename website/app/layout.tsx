@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Python Scripting in PLAXIS",
+  title: "Python Scripting for PLAXIS",
   description:
-    "Companion website for the book — Python Scripting in PLAXIS: Automating Geotechnical Analysis and Modelling Workflows",
+    "Companion website for the book — Python Scripting for PLAXIS: Automating Geotechnical Analysis and Modeling Workflows",
 };
 
 export default function RootLayout({
