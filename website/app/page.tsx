@@ -94,17 +94,6 @@ export default function Home() {
             <PlaxisLogo className="h-12 w-auto sm:h-14" />
           </div>
 
-          {/* Construction badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
-            </span>
-            <span className="text-xs font-medium text-amber-300 tracking-wide uppercase">
-              Under Construction
-            </span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
             Python Scripting
             <br />
@@ -139,9 +128,14 @@ export default function Home() {
             >
               View on GitHub
             </a>
-            <span className="rounded-lg border border-slate-700 px-6 py-3 text-sm text-slate-500 cursor-default">
-              Book &mdash; Coming Soon
-            </span>
+            <a
+              href="https://www.routledge.com/Python-Scripting-for-PLAXIS-Automating-Geotechnical-Analysis-and-Modeling-Workflows/Akhtar/p/book/9781041245131"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-slate-700 px-6 py-3 text-sm text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+            >
+              Get the Book
+            </a>
           </div>
         </div>
       </main>
