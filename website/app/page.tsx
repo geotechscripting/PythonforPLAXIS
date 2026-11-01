@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import bookCover from "../public/book-cover.webp";
 
+const bookUrl =
+  "https://www.routledge.com/Python-Scripting-for-PLAXIS-Automating-Geotechnical-Analysis-and-Modeling-Workflows/Akhtar/p/book/9781041245131";
+
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About the Book", href: "#about" },
@@ -106,12 +109,19 @@ export default function Home() {
             Automating Geotechnical Analysis and Modeling Workflows
           </p>
 
-          <Image
-            src={bookCover}
-            alt="Cover of Python Scripting for PLAXIS"
-            className="w-48 sm:w-60 h-auto mx-auto rounded-md shadow-2xl shadow-black/50"
-            priority
-          />
+          <a
+            href={bookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-48 sm:w-60 mx-auto transition-transform hover:scale-[1.02]"
+          >
+            <Image
+              src={bookCover}
+              alt="Cover of Python Scripting for PLAXIS"
+              className="w-full h-auto rounded-md shadow-2xl shadow-black/50"
+              priority
+            />
+          </a>
 
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent mx-auto"></div>
 
@@ -129,7 +139,7 @@ export default function Home() {
               View on GitHub
             </a>
             <a
-              href="https://www.routledge.com/Python-Scripting-for-PLAXIS-Automating-Geotechnical-Analysis-and-Modeling-Workflows/Akhtar/p/book/9781041245131"
+              href={bookUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-slate-700 px-6 py-3 text-sm text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
