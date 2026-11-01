@@ -43,9 +43,9 @@ function PlaxisLogo({ className }: { className?: string }) {
     <Image
       src={`${process.env.NEXT_PUBLIC_BASE_PATH}/plaxis-logo.svg`}
       alt="PLAXIS logo"
-      width={96}
-      height={96}
-      className={`object-contain ${className ?? ""}`}
+      width={520}
+      height={174}
+      className={className}
     />
   );
 }
@@ -91,7 +91,7 @@ export default function Home() {
             <span className="text-3xl text-slate-600 font-light select-none">
               +
             </span>
-            <PlaxisLogo className="h-20 w-20 sm:h-24 sm:w-24" />
+            <PlaxisLogo className="h-12 w-auto sm:h-14" />
           </div>
 
           {/* Construction badge */}
