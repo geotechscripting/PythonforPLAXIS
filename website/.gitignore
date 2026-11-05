@@ -20,6 +20,9 @@
 # production
 /build
 
+# book scripts (copied from repo root by the prebuild script)
+/public/scripts/
+
 # misc
 .DS_Store
 *.pem

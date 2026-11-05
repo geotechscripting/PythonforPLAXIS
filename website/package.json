@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "copy-scripts": "mkdir -p public/scripts && cp ../*.py ../EQ.txt public/scripts/",
+    "predev": "npm run copy-scripts",
     "dev": "next dev",
+    "prebuild": "npm run copy-scripts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

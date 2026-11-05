@@ -5,11 +5,60 @@ import bookCover from "../public/book-cover.webp";
 const bookUrl =
   "https://www.routledge.com/Python-Scripting-for-PLAXIS-Automating-Geotechnical-Analysis-and-Modeling-Workflows/Akhtar/p/book/9781041245131";
 
+const contactEmail = "w.akhtar@hotmail.com";
+
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About the Book", href: "#about" },
+  { label: "Scripts", href: "#scripts" },
   { label: "Contact", href: "#contact" },
 ];
+
+const bookTitle =
+  "Python Scripting for PLAXIS: Automating Geotechnical Analysis and Modeling Workflows";
+
+const aboutParagraphs = [
+  "explores the integration of Python programming with geotechnical engineering to make numerical modelling and analysis more efficient, systematic, and automated.",
+  "The book provides a practical approach to using Python for automating PLAXIS workflows, from model development and parameter definition to calculation management, results extraction, post-processing, and optimization. Through practical examples and scripting applications, it demonstrates how programming can help engineers streamline repetitive tasks, improve modelling efficiency, and develop more flexible and powerful numerical analysis workflows.",
+  "Designed for geotechnical engineers, researchers, postgraduate students, and PLAXIS users, this book bridges the gap between conventional geotechnical engineering practice and computational methods. It encourages engineers to move beyond conventional software operations and explore the possibilities of programming-driven geotechnical analysis.",
+  "Whether you are beginning your journey with Python or looking to advance your numerical modelling capabilities, this book provides a practical foundation for incorporating automation and computational techniques into geotechnical engineering.",
+];
+
+const scripts = [
+  {
+    file: "1_StaticPLT.py",
+    title: "Static Pile Load Test",
+    description:
+      "Axisymmetric model with Mohr-Coulomb soil, loading/unloading stages, and pile head displacement curve.",
+  },
+  {
+    file: "2_Dam_EQ.py",
+    title: "Embankment Dam under Seismic Loading",
+    description:
+      "Plane strain model with zoned dam, earthquake accelerogram input, and crest acceleration time history.",
+  },
+  {
+    file: "EQ.txt",
+    title: "Earthquake Acceleration Record",
+    description: "Input accelerogram used by the embankment dam example.",
+  },
+  {
+    file: "3_Tunnel.py",
+    title: "Tunnel Excavation and Support Design",
+    description:
+      "Plane strain model with Hoek-Brown rock, shotcrete lining, rock bolts, and crown/wall displacement curves.",
+  },
+  {
+    file: "4_Slopestability.py",
+    title: "Slope Stability Analysis",
+    description:
+      "Bench-cut slope in Hoek-Brown rock using the strength reduction method with Factor of Safety curve.",
+  },
+];
+
+const sectionClass =
+  "scroll-mt-20 border-t border-slate-800 px-6 py-16 sm:py-20";
+const headingClass = "text-2xl sm:text-3xl font-bold tracking-tight text-white";
 
 function PythonLogo({ className }: { className?: string }) {
   return (
@@ -149,6 +198,74 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* About the Book */}
+      <section id="about" className={sectionClass}>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className={headingClass}>About the Book</h2>
+          {aboutParagraphs.map((text, i) => (
+            <p key={i} className="text-slate-400 leading-relaxed">
+              {i === 0 && (
+                <span className="font-medium text-slate-200">{bookTitle} </span>
+              )}
+              {text}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      {/* Scripts */}
+      <section id="scripts" className={sectionClass}>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className={headingClass}>Scripts</h2>
+          <p className="text-slate-400 leading-relaxed">
+            Example scripts from the book. Each requires PLAXIS 2D with the
+            Remote Scripting Server enabled; update the port numbers and
+            password to match your configuration.
+          </p>
+          <ul className="divide-y divide-slate-800 rounded-lg border border-slate-800">
+            {scripts.map((s) => (
+              <li
+                key={s.file}
+                className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-4 sm:p-5"
+              >
+                <div className="flex-1 space-y-1">
+                  <p className="font-semibold text-white">{s.title}</p>
+                  <p className="text-sm text-slate-400">{s.description}</p>
+                  <p className="text-xs font-mono text-amber-400/80">
+                    {s.file}
+                  </p>
+                </div>
+                <a
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH}/scripts/${s.file}`}
+                  download
+                  className="self-start sm:self-center rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-300 hover:border-slate-500 hover:text-white transition-colors"
+                >
+                  Download
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className={sectionClass}>
+        <div className="max-w-3xl mx-auto space-y-4">
+          <h2 className={headingClass}>Contact</h2>
+          <p className="text-slate-400 leading-relaxed">
+            Questions or feedback about the book or scripts? Contact the author,
+            Waseem Akhtar, at{" "}
+            <a
+              href={`mailto:${contactEmail}`}
+              className="text-amber-400 hover:text-amber-300 transition-colors"
+            >
+              {contactEmail}
+            </a>
+            .
+          </p>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="border-t border-slate-800 py-6 px-6 text-center space-y-2">
