@@ -7,46 +7,45 @@ Users must independently verify all results before applying them in analysis, de
 '''
 
 # Script for creating a Slope Stability Model
-
 from plxscripting.easy import *
 import matplotlib.pyplot as plt
 
 # Getting PLAXIS scripting server and global objects
 # Modify Port Numbers and Passwords as entered for RSS configuration
-s_i, g_i = new_server("localhost", 10000, password = "mypassword")
-s_o, g_o = new_server("localhost", 10001, password = "mypassword")
+s_i, g_i = new_server("localhost", 10000, password = "yourpassword")
+s_o, g_o = new_server("localhost", 10001, password = "yourpassword")
 
 # Creating a new project
 s_i.new()
 
 # Setting PLAXIS project settings and units
 g_i.setproperties("Title", "Slope Stability Analysis",
-                        "Company", "",
-                        "Comments", "",
-                        "UnitForce", "kN",
-                        "UnitLength", "m",
-                        "UnitTime", "day",
-                        "WaterWeight", 10,
-                        "ModelType", "Plane strain",
-                        "ElementType", "15-Noded")
+                         "Company", "",
+                         "Comments", "",
+                         "UnitForce", "kN",
+                         "UnitLength", "m",
+                         "UnitTime", "day",
+                         "WaterWeight", 10,
+                         "ModelType", "Plane strain",
+                         "ElementType", "15-Noded")
 
 # Setting up soil profile and material properties
 g_i.SoilContour.initializerectangular(0, 0, 125.5, 100)
 
 # Creating Soil materials
 g_i.soilmat("Identification", "Rock",
-                "SoilModel", "Hoek-Brown",
-                "Colour", 8638971,
-                "gammaSat", 27,
-                "gammaUnsat", 26,
-                "Erm", 1500000,
-                "nu", 0.25,
-                "AbsSigmaCI", 35000,
-                "HoekBrownParameterDetermination", "Derived",
-                "mi", 12,
-                "GSI", 35,
-                "Disturbance", 0,
-                "psiMax", 2)
+                 "SoilModel", "Hoek-Brown",
+                 "Colour", 8638971,
+                 "gammaSat", 27,
+                 "gammaUnsat", 26,
+                 "Erm", 1500000,
+                 "nu", 0.25,
+                 "AbsSigmaCI", 35000,
+                 "HoekBrownParameterDetermination", "Derived",
+                 "mi", 12,
+                 "GSI", 35,
+                 "Disturbance", 0,
+                 "psiMax", 2)
 
 g_i.gotostructures()
 g_i.polygon((0,0), (125.5,0), (125.5,100), (75.5,100), (73,90),
@@ -86,29 +85,29 @@ g_i.view(g_i.Phase_1)
 g_o.Plot_1.ResultType.set(g_o.ResultTypes.Soil.Utot)
 g_o.Plot_1.PlotType.set("shadings")
 g_o.Plot_1.setproperties(
-    "DrawFrame", True,
-    "DrawProjectDirectory", True,
-    "DrawTitle", True,
-    "DrawLegend", True,
-    "DrawRulers", True,
-    "DrawAxes", True,
-    "DrawLogo", True,
-    "ProjectDescription", "Slope Stability Failure Plane")
-
+        "DrawFrame", True,
+        "DrawProjectDirectory", True,
+        "DrawTitle", True,
+        "DrawLegend", True,
+        "DrawRulers", True,
+        "DrawAxes", True,
+        "DrawLogo", True,
+        "ProjectDescription", "Slope Stability Failure Plane")
+        
 g_o.Plot_1.export(r"E:\PLAXIS2D\SlopeStability_Failureplane.png")
 
-#Plotting Plastic Points and exporting the plot to file
+# Plotting Plastic Points and exporting the plot to file
 g_o.Plot_1.ResultType.set(g_o.ResultTypes.Soil.PlasticPoint)
 g_o.Plot_1.PlotType.set("PlasticPoints")
 g_o.Plot_1.setproperties(
-    "DrawFrame", True,
-    "DrawProjectDirectory", True,
-    "DrawTitle", True,
-    "DrawLegend", True,
-    "DrawRulers", True,
-    "DrawAxes", True,
-    "DrawLogo", True,
-    "ProjectDescription", "Slope Stability Plastic Points")
+        "DrawFrame", True,
+        "DrawProjectDirectory", True,
+        "DrawTitle", True,
+        "DrawLegend", True,
+        "DrawRulers", True,
+        "DrawAxes", True,
+        "DrawLogo", True,
+        "ProjectDescription", "Slope Stability Plastic Points")
 
 g_o.Plot_1.export(r"E:\PLAXIS2D\Slopestability_PlasticPoints.png")
 

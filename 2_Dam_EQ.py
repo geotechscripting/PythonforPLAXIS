@@ -13,88 +13,88 @@ import matplotlib.pyplot as plt
 
 # Getting PLAXIS scripting server and global objects
 # Modify Port Numbers and Passwords as entered for RSS configuration
-s_i, g_i = new_server("localhost", 10000, password = "mypassword")
-s_o, g_o = new_server("localhost", 10001, password = "mypassword")
+s_i, g_i = new_server("localhost", 10000, password = "yourpassword")
+s_o, g_o = new_server("localhost", 10001, password = "yourpassword")
 
 # Creating a new project
 s_i.new()
 
 # Setting PLAXIS project settings and units
 g_i.setproperties("Title", "Embankment Dam Seismic Loading",
-                        "Company", "",
-                        "Comments", "",
-                        "UnitForce", "kN",
-                        "UnitLength", "m",
-                        "UnitTime", "day",
-                        "WaterWeight", 10,
-                        "ModelType", "Plane strain",
-                        "ElementType", "15-Noded")
+                         "Company", "",
+                         "Comments", "",
+                         "UnitForce", "kN",
+                         "UnitLength", "m",
+                         "UnitTime", "s",
+                         "WaterWeight", 10,
+                         "ModelType", "Plane strain",
+                         "ElementType", "15-Noded")
 
 # Setting up soil profile and material properties
 g_i.SoilContour.initializerectangular(-150, -70, 150, 50)
 
 # Creating Soil materials
 g_i.soilmat("Identification", "DamBody",
-                "SoilModel", "Mohr-Coulomb",
-                "Colour", 8638971,
-                "gammaSat", 18,
-                "gammaUnsat", 16,
-                "ERef", 25000,
-                "nu", 0.28,
-                "cRef", 10,
-                "phi", 33,
-                "psi", 2,
-                "GroundwaterClassificationType", "Hypres",
-                "GroundwaterSoilClassStandard", "Coarse",
-                "GwUseDefaults", False,
-                "PermHorizontalPrimary", 1,
-                "PermVertical", 1,
-                "RayleighDampingInputMethod", "SDOF equivalent",
-                "TargetDamping1", 1,
-                "TargetFrequency1", 1,
-                "TargetDamping2", 3,
-                "TargetFrequency2", 5) 
-                
+                 "SoilModel", "Mohr-Coulomb",
+                 "Colour", 8638971,
+                 "gammaSat", 18,
+                 "gammaUnsat", 16,
+                 "ERef", 25000,
+                 "nu", 0.28,
+                 "cRef", 10,
+                 "phi", 33,
+                 "psi", 2,
+                 "GroundwaterClassificationType", "Hypres",
+                 "GroundwaterSoilClassStandard", "Coarse",
+                 "GwUseDefaults", False,
+                 "PermHorizontalPrimary", 1,
+                 "PermVertical", 1,
+                 "RayleighDampingInputMethod", "SDOF equivalent",
+                 "TargetDamping1", 1,
+                 "TargetFrequency1", 1,
+                 "TargetDamping2", 3,
+                 "TargetFrequency2", 5)
+
 g_i.soilmat("Identification", "DamFoundation",
-                "SoilModel", "Mohr-Coulomb",
-                "Colour", 6581619,
-                "gammaSat", 21,
-                "gammaUnsat", 19,
-                "ERef", 65000,
-                "nu", 0.3,
-                "cRef", 25,
-                "phi", 37,
-                "psi", 5,
-                "GroundwaterClassificationType", "Hypres",
-                "GroundwaterSoilClassStandard", "Coarse",
-                "GwUseDefaults", False,
-                "PermHorizontalPrimary", 0.01,
-                "PermVertical", 0.01,
-                "RayleighDampingInputMethod", "SDOF equivalent",
-                "TargetDamping1", 1,
-                "TargetFrequency1", 1,
-                "TargetDamping2", 2,
-                "TargetFrequency2", 5)
-                              
+                 "SoilModel", "Mohr-Coulomb",
+                 "Colour", 6581619,
+                 "gammaSat", 21,
+                 "gammaUnsat", 19,
+                 "ERef", 65000,
+                 "nu", 0.3,
+                 "cRef", 25,
+                 "phi", 37,
+                 "psi", 5,
+                 "GroundwaterClassificationType", "Hypres",
+                 "GroundwaterSoilClassStandard", "Coarse",
+                 "GwUseDefaults", False,
+                 "PermHorizontalPrimary", 0.01,
+                 "PermVertical", 0.01,
+                 "RayleighDampingInputMethod", "SDOF equivalent",
+                 "TargetDamping1", 1,
+                 "TargetFrequency1", 1,
+                 "TargetDamping2", 2,
+                 "TargetFrequency2", 5)
+
 g_i.soilmat("Identification", "Core",
-                "SoilModel", "Mohr-Coulomb",
-                "Colour", 2253703,
-                "DrainageType", "Undrained B",
-                "gammaSat", 18,
-                "gammaUnsat", 16,
-                "ERef", 3000,
-                "nu", 0.3,
-                "sURef", 5,
-                "GroundwaterClassificationType", "Hypres",
-                "GroundwaterSoilClassStandard", "Very fine",
-                "GwUseDefaults", False,
-                "PermHorizontalPrimary", 0.0001,
-                "PermVertical", 0.0001,
-                "RayleighDampingInputMethod", "SDOF equivalent",
-                "TargetDamping1", 3,
-                "TargetFrequency1", 1,
-                "TargetDamping2", 5,
-                "TargetFrequency2", 5)
+                 "SoilModel", "Mohr-Coulomb",
+                 "Colour", 2253703,
+                 "DrainageType", "Undrained B",
+                 "gammaSat", 18,
+                 "gammaUnsat", 16,
+                 "ERef", 12000,
+                 "nu", 0.3,
+                 "sURef", 10,
+                 "GroundwaterClassificationType", "Hypres",
+                 "GroundwaterSoilClassStandard", "Very fine",
+                 "GwUseDefaults", False,
+                 "PermHorizontalPrimary", 0.0001,
+                 "PermVertical", 0.0001,
+                 "RayleighDampingInputMethod", "SDOF equivalent",
+                 "TargetDamping1", 3,
+                 "TargetFrequency1", 1,
+                 "TargetDamping2", 5,
+                 "TargetFrequency2", 5)
 
 # Creating borehole and soil layer
 g_i.borehole(0)
@@ -104,8 +104,8 @@ g_i.Soillayer_1.Zones[0].Bottom.set(-70)
 g_i.Soillayer_1.Soil.Material.set(g_i.DamFoundation)
 
 g_i.gotostructures()
-g_i.polygon((-80,0),(92.5,0.0),(2.5,30.0),(-2.5,30.0))
-g_i.cutpoly((-10,0),(-2.5,30))
+g_i.polygon((-80,0), (92.5,0.0), (2.5,30.0), (-2.5,30.0))
+g_i.cutpoly((-10,0), (-2.5,30))
 g_i.cutpoly((10,0), (2.5,30))
 
 g_i.Soil_2.Material.set(g_i.Core)
@@ -120,7 +120,7 @@ g_i.DisplacementMultiplier_1.DataType.set("Accelerations")
 #Reading EQ acceleration data from a text file
 EQacc = []
 with open("E:/EQ.txt", "r") as file:
-    next(file)  # skip first row (header)
+    next(file)# skip first row (header)
     for line in file:
         values = line.strip().split()
         EQacc.extend(float(v) for v in values)
@@ -129,12 +129,13 @@ with open("E:/EQ.txt", "r") as file:
 g_i.DisplacementMultiplier_1.Table.set(EQacc)
 g_i.DisplacementMultiplier_1.DriftCorrection.set(True)
 
-# Creating a line displacement at model bottom boundary and assigning multiplier to it
-g_i.linedispl((-150, -70), (150, -70))
+# Creating a line displacement at model bottom boundary
+# and assigning multiplier to it
+g_i.linedispl((-150,-70), (150,-70))
 g_i.LineDisplacement_1.Displacement_y.set("Fixed")
 g_i.LineDisplacement_1.Displacement_x.set("Prescribed")
-g_i.LineDisplacement_1.ux_start.set(0.5)
-g_i.Line_1.LineDisplacement.LineDisplacement.Multiplierx.set(g_i.DisplacementMultiplier_1)
+g_i.LineDisplacement_1.ux_start.set(1)
+g_i .Line_1.LineDisplacement.LineDisplacement.Multiplierx.set(g_i.DisplacementMultiplier_1)
 
 # Creating interfaces at model boundaries
 g_i.neginterface((150,0), (150,-70))
@@ -165,6 +166,7 @@ g_i.Phase_1.Identification.set("Earthquake Loading")
 g_i.Phase_1.DeformCalcType.set("Dynamics")
 g_i.setcurrentphase(g_i.Phase_1)
 g_i.LineDisplacement_1.activate(g_i.Phase_1)
+g_i.DynLineDisplacement_1_1.activate(g_i.Phase_1)
 g_i.Dynamics.BoundaryXMin.set(g_i.Phase_1, "Free-field")
 g_i.Dynamics.BoundaryXMax.set(g_i.Phase_1, "Free-field")
 g_i.Dynamics.BoundaryYMin.set(g_i.Phase_1, "Compliant base")
@@ -183,7 +185,8 @@ g_i.save(r"E:\PLAXIS2D\Dam_EQ.p2dx")
 g_i.calculate()
 g_i.view(g_i.Phase_1)
 
-# Creating curves for input acceleration and crest acceleration and saving to file
+# Creating curves for input acceleration and crest acceleration
+# Also saving the plot to file
 # Plotting applied accelerogram
 mult = EQacc[1::2]
 rec_time = EQacc[::2]

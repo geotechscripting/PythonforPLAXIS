@@ -24,6 +24,7 @@ Each script demonstrates end-to-end automation of a PLAXIS 2D model — from geo
 
 1. Open PLAXIS 2D Input and enable the Remote Scripting Server (RSS).
 2. Update the port numbers and password in the script to match your RSS configuration.
+   For `2_Dam_EQ.py`, also update the path to `EQ.txt` (earthquake acceleration record included in this repository).
 3. Run the script:
    ```
    python 1_StaticPLT.py
